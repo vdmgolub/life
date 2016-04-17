@@ -1,7 +1,7 @@
 {
-  "name": "bro",
-  "version": "1.0.0",
-  "description": "browserify test",
+  "name": "life",
+  "version": "0.0.1",
+  "description": "Tim Urban's Life Calendar",
   "main": "index.js",
   "scripts": {
     "bundle": "make bundle"
@@ -10,9 +10,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.0.0",
+    "underscore": "^1.8.3",
     "browserify": "^13.0.0",
-    "chroma-js": "^1.1.1",
-    "coffee-script": "^1.10.0",
-    "jquery": "^2.2.3"
+    "npm-zepto": "^1.1.6"
   }
 }
