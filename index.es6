@@ -5,7 +5,9 @@ $(() => {
   class Life {
     constructor(element) {
       this.life = element;
-      this.years = 90;
+      let params = this.getQueryParams();
+      this.bday = params["bday"];
+      this.years = params["years"] || 90;
     }
 
     start() {
@@ -17,10 +19,23 @@ $(() => {
         year.appendTo(this.life);
       };
 
-      $(".week").click((e) => {
+      this.fillSpentTime();
+
+      $(".week").not($(".spent")).click((e) => {
         $(e.currentTarget).toggleClass("clicked");
       });
       $(".week").addClass("interactive");
+    }
+
+    fillSpentTime() {
+      if (this.bday !== undefined) {
+        let bday = new Date(this.bday);
+        let currentTime = new Date();
+        let weeksCount = Math.ceil((currentTime - bday) / 1000 / 60 / 60 / 24 / 7)
+        $(".week").slice(0, weeksCount).each((index, el) => {
+          $(el).addClass("clicked spent");
+        });
+      }
     }
 
     createCounter() {
@@ -61,6 +76,21 @@ $(() => {
       };
 
       return row;
+    }
+
+    getQueryParams(queryString) {
+      var query = (queryString || window.location.search).substring(1); // delete ?
+      if (!query) {
+        return false;
+      }
+      return _
+        .chain(query.split('&'))
+        .map(function(params) {
+          var p = params.split('=');
+          return [p[0], decodeURIComponent(p[1])];
+        })
+        .object()
+        .value();
     }
   }
 
