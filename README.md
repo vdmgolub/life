@@ -2,15 +2,9 @@
 
 This HTML infographic was inspired by Tim Urban's [Life Calendar](http://waitbutwhy.com/2014/05/life-weeks.html).
 
-![your life](http://some1else.github.io/life/thumb.jpg)
+# Usage
 
-## Features
+Add query params to URL to prepopulate the calendar:
 
-- Looks nice
-- Clicking on a week toggles it red
-
-## Wishlist
-
-- [ ] Make it squares
-- [ ] Notes
-- [ ] Persistence
+- `bday` - birthday date in format `1986-12-31`
+- `years` - life expectancy in years, default is `90`
